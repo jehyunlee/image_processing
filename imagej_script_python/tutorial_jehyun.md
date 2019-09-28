@@ -5,10 +5,12 @@
 > **문의** : 이제현 (email: jehyun.lee@gmail.com)  
 
 ### 1. ImageJ-Fiji 설치  
+  
 ### 2. Image File 구조  
 #### - 2.1. Bitmap  
 #### - 2.2. Channel  
 #### - 2.3. Metadata (`.dm3`, `.tif`, `.jpg`)  
+  
 ### 3. Image 한 장 다루기  
 #### - 3.1. File Load/Save  
 #### - 3.2. Image Data 추출  
@@ -18,9 +20,12 @@
 #### - 3.6. Grayscale 조정  
 #### - 3.7. Noise Reduction  
 ....
+<br>  
+  
 ### 4. Image 일부 다루기
 #### 4.1. ROI (Region of Interest) 설정  
 ....
+  
 ### 5. Image 여러 장 다루기
 #### 5.1. Series Image 읽어오기  
 #### 5.2. Image 일괄처리  
