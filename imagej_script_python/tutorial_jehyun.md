@@ -4,7 +4,7 @@
 > **환경** : [`ImageJ-Fiji`](https://imagej.net/Fiji), `Python 3`, `Windows 10`  
 > **문의** : 이제현 (email: jehyun.lee@gmail.com)  
 
-### 1. ImageJ-Fiji 설치  
+### 1. ImageJ-Fiji 설치 [[Link](/imagej_script_python/1_installation.md)]
   
 ### 2. Image File 구조  
 #### - 2.1. Bitmap  
