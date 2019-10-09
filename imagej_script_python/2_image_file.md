@@ -1,6 +1,7 @@
 ## 2. Image File 구조  
 * 여러분이 다룰 Image File의 구조를 간략하게 살펴보겠습니다.  
 * 최대한 간결하게 필수적인 지식만 전달하고자 합니다.  
+* 자세한 정보를 원하시면 공식 매뉴얼을 참고하시기 바랍니다 : [[Link](https://imagej.nih.gov/ij/docs/guide/146-7.html#toc-Section-7)]
 
 ### 2.1. Image File 읽기.  
 * `ImageJ`에서는 다른 프로그램처럼 `[File] > [Open]`을 통해서 이미지 파일을 열 수 있습니다.  
@@ -14,7 +15,8 @@
 ### 2.2. Image File 정보 읽기.  
 * 아래 왼쪽과 같이 흑백 배 사진을 보실 수 있습니다.  
 * 사진 왼쪽 위를 자세히 보시면 `720x576 pixels; 8-bit, 405K`라는 정보가 나와 있습니다만 조금 더 자세히 알아봅시다.  
-
+* `[Image] > [Show Info]`를 클릭하시면 이미지의 전체적인 정보를 보실 수 있습니다.
+* 이미지 창에서 `Ctrl + I` 단축키를 입력하셔도 됩니다.
 
 ![image_1](/imagej_script_python/images/2_image_1.PNG)
 <br>  
