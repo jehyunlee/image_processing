@@ -25,11 +25,11 @@
 <br>  
 
 * `Title` 은 파일명, `Width`은 이미지의 폭, `Height`는 이미지의 높이, `Size`는 파일 크기를 말하며,  
-  조금 아래에 있는 `Bits per pixel`과 `Display range`는 한 `pixel`이 담을 수 있는 데이터의 크기를 말합니다.  
+  `Bits per pixel`과 `Display range`는 한 `pixel`이 담을 수 있는 데이터의 크기를 말합니다.  
 * n bit는 <img src="https://latex.codecogs.com/gif.latex?2^n" />개의 정보를 담을 수 있으므로, 8 bit는 한 `pixel`의 데이터를 <img src="https://latex.codecogs.com/gif.latex?2^8" /> = 256 단계로 표현할 수 있습니다.  
-* 따라서 `Display range`는 0(black)-255(white)까지의 값을 가질 수 있습니다.  
+  따라서 `Display range`는 0(black)-255(white)까지의 값을 가질 수 있습니다.  
 
-* 이 외에도 `Channels`, `Slices`, `Frames` 속성이 있으며 각기 다음과 같은 의미를 가집니다.
+* 이 외에도 `Channels`, `Slices`, `Frames` 속성이 있으며 각기 다음과 같은 의미를 가집니다.  
   `Channel`: 하나의 `pixel`을 몇 가지의 데이터로 표현하는지. ex) 3개의 `channel`인 경우 흔히 `RGB`로 표현합니다.  
   `Slices`: 입체적인 시료를 여러 층으로 나누어 분석할 때 몇 개의 층으로 분석했는지.  
   `Frames`: 몇 장의 연속왼 이미지를 합쳤는지. ex) 동영상을 구성하는 이미지 수.
@@ -37,3 +37,16 @@
 ![image_6](/imagej_script_python/images/2_image_6.PNG)
 <br>  
 
+* 다른 예제를 통해 복잡한 이미지의 기본 정보를 살펴봅시다.  
+* `[File] > [Open Samples]`에서 `mitosis.tif`를 선택합니다.  
+![image_7](/imagej_script_python/images/2_image_7.PNG)
+<br>  
+
+* 2 `channel`, 5 `slice`, 51 `frames`를 가진 171 x 196 image 입니다.  
+  `Image Info`  
+![image_8](/imagej_script_python/images/2_image_8.PNG)
+<br>  
+
+  `Image Properties...`
+![image_9](/imagej_script_python/images/2_image_9.PNG)
+<br>  
