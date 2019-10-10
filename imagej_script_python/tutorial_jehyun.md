@@ -6,7 +6,7 @@
 
 ### [1. ImageJ-Fiji 설치](/imagej_script_python/1_installation.md)
   
-### 2. Image File 구조  
+### [2. Image File 구조](/imagej_script_python/2_image_file.md)  
 #### - 2.1. Bitmap  
 #### - 2.2. Channel  
 #### - 2.3. Metadata (`.dm3`, `.tif`, `.jpg`)  
