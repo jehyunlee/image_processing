@@ -43,10 +43,10 @@
 ![image_7](/imagej_script_python/images/2_image_7.PNG)
 <br>  
 
-* `Image Info`  
-![image_8](/imagej_script_python/images/2_image_8.PNG)
+* `Image Info`: 파일명, 이미지 크기, `Bits per pixel`, `Frame` 관련 정보가 보입니다.  
+![image_9](/imagej_script_python/images/2_image_9.PNG)
 <br>  
 
-* `Image Properties...`  
-![image_9](/imagej_script_python/images/2_image_9.PNG)
+* `Image Properties...`: `Channels`, `Slices`, `Frames` 정보가 보입니다.   
+![image_8](/imagej_script_python/images/2_image_8.PNG)
 <br>  
