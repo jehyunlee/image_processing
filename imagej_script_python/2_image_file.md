@@ -43,9 +43,9 @@
 <br>  
 
 * 2 `channel`, 5 `slice`, 51 `frames`를 가진 171 x 196 image 입니다.  
-  `Image Info`  
+* `Image Info`  
 ![image_8](/imagej_script_python/images/2_image_8.PNG)
 <br>  
-  `Image Properties...`
+* `Image Properties...`  
 ![image_9](/imagej_script_python/images/2_image_9.PNG)
 <br>  
