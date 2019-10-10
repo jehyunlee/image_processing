@@ -12,7 +12,7 @@
 ![image_0](/imagej_script_python/images/2_image_0.PNG)
 <br>  
 
-### 2.2. Image File 정보 읽기.  
+### 2.2. Image File 정보 읽기 (ImageJ GUI).  
 * 아래 왼쪽과 같이 흑백 배 사진을 보실 수 있습니다.  
 * 사진 왼쪽 위를 자세히 보시면 `720x576 pixels; 8-bit, 405K`라는 정보가 나와 있습니다만 조금 더 자세히 알아봅시다.  
 * `[Image] > [Show Info]`를 클릭하시면 이미지의 전체적인 정보를 보실 수 있습니다.  
@@ -50,3 +50,32 @@
 * `Image Properties...`: `Channels`, `Slices`, `Frames` 정보가 보입니다.   
 ![image_8](/imagej_script_python/images/2_image_8.PNG)
 <br>  
+
+### 2.3. Image File 정보 읽기 (ImageJ Python Script).  
+* 우리의 목적은 `python` script를 이용해서 이미지를 처리하는 것입니다.  
+* `python` 명령어를 이용해서 이미지에 드러난 형상과 `pixel` 데이터를 처리하는 연습을 해 봅시다.  
+* 다시 `Boats`를 화면에 띄우고 script 창을 열어봅시다.  
+* `[File] > [New] > [Script..]`를 클릭해 봅시다.
+![image_3](/imagej_script_python/images/2_image_3.PNG)
+<br>  
+
+* 단축키 `[`를 누르면 한 번에 아래와 같은 창을 띄울 수 있습니다.  
+* `ImageJ`는 상당히 많은 언어를 제공합니다. [[상세링크](https://imagej.net/Scripting)]  
+  우리는 `python`을 이용한 스크립트를 작성할 것이므로 이 중에서 `python`을 선택합시다.  
+![image_4](/imagej_script_python/images/2_image_4.PNG)
+<br>  
+
+
+* 엄밀히 말하면, `ImageJ`에서 지원하는 것은 `Python`이 아니라 `Jython`입니다.   
+  `Jython`은 `JAVA` 플랫폼에서 `Python`을 구현한 것으로, `JAVA` class를 불러올 수 있습니다. [[Link](https://jythonbook-ko.readthedocs.io/en/latest/LangSyntax.html)]  
+* `ImageJ` 자체가 `JAVA`로 구축되어 있으므로 이를 활용하기 위해 `Jython`을 택한 것으로 판단되며,  
+  모듈 불러오기(`import`) 정도만 다를 뿐 전반적으로 `python`의 문법을 따릅니다. [[Link](https://imagej.net/Jython_Scripting)]  
+  
+* script 창에 아래와 같은 명령을 입력하고 실행해 봅시다.  
+* 실행 단축키는 `Ctrl + R` 입니다.  
+![image_5](/imagej_script_python/images/2_image_5.PNG)  
+
+
+<br>  
+
+
