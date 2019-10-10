@@ -39,10 +39,10 @@
 
 * 다른 예제를 통해 복잡한 이미지의 기본 정보를 살펴봅시다.  
 * `[File] > [Open Samples]`에서 `mitosis.tif`를 선택합니다.  
+  2 `channel`, 5 `slice`, 51 `frames`를 가진 171 x 196 image 입니다.  
 ![image_7](/imagej_script_python/images/2_image_7.PNG)
 <br>  
 
-* 2 `channel`, 5 `slice`, 51 `frames`를 가진 171 x 196 image 입니다.  
 * `Image Info`  
 ![image_8](/imagej_script_python/images/2_image_8.PNG)
 <br>  
