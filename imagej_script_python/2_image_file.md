@@ -46,6 +46,7 @@
 * `Image Info`  
 ![image_8](/imagej_script_python/images/2_image_8.PNG)
 <br>  
+
 * `Image Properties...`  
 ![image_9](/imagej_script_python/images/2_image_9.PNG)
 <br>  
