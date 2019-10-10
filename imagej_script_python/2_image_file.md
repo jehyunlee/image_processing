@@ -15,9 +15,25 @@
 ### 2.2. Image File 정보 읽기.  
 * 아래 왼쪽과 같이 흑백 배 사진을 보실 수 있습니다.  
 * 사진 왼쪽 위를 자세히 보시면 `720x576 pixels; 8-bit, 405K`라는 정보가 나와 있습니다만 조금 더 자세히 알아봅시다.  
-* `[Image] > [Show Info]`를 클릭하시면 이미지의 전체적인 정보를 보실 수 있습니다.
-* 이미지 창에서 `Ctrl + I` 단축키를 입력하셔도 됩니다.
-
+* `[Image] > [Show Info]`를 클릭하시면 이미지의 전체적인 정보를 보실 수 있습니다.  
+* 이미지 창에서 `Ctrl + I` 단축키를 입력하셔도 됩니다.  
 ![image_1](/imagej_script_python/images/2_image_1.PNG)
+<br>  
+
+* 그럼, 아래와 같은 Image File의 정보가 요약된 창이 뜹니다.  
+![image_2](/imagej_script_python/images/2_image_2.PNG)
+<br>  
+
+* `Title` 은 파일명, `Width`은 이미지의 폭, `Height`는 이미지의 높이, `Size`는 파일 크기를 말하며,  
+  조금 아래에 있는 `Bits per pixel`과 `Display range`는 한 `pixel`이 담을 수 있는 데이터의 크기를 말합니다.  
+* n bit는 <img src="https://latex.codecogs.com/gif.latex?2^n" />개의 정보를 담을 수 있으므로, 8 bit는 한 `pixel`의 데이터를 <img src="https://latex.codecogs.com/gif.latex?2^8" /> = 256 단계로 표현할 수 있습니다.  
+* 따라서 `Display range`는 0(black)-255(white)까지의 값을 가질 수 있습니다.  
+
+* 이 외에도 `Channels`, `Slices`, `Frames` 속성이 있으며 각기 다음과 같은 의미를 가집니다.
+  `Channel`: 하나의 `pixel`을 몇 가지의 데이터로 표현하는지. ex) 3개의 `channel`인 경우 흔히 `RGB`로 표현합니다.  
+  `Slices`: 입체적인 시료를 여러 층으로 나누어 분석할 때 몇 개의 층으로 분석했는지.  
+  `Frames`: 몇 장의 연속왼 이미지를 합쳤는지. ex) 동영상을 구성하는 이미지 수.
+* `Channels`, `Slices`, `Frames` 속성은 `[Image] > [Properties...]` 에서 다음과 같이 확인 가능합니다.  
+![image_6](/imagej_script_python/images/2_image_6.PNG)
 <br>  
 
