@@ -11,10 +11,13 @@
 
 ### [2. Image File 구조](/imagej_script_python/2_image_file.md)  
 #### [- 2.1. Image File 읽기](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#21-image-file-%EC%9D%BD%EA%B8%B0)  
-#### [- 2.2. Image File 정보 읽기 (GUI)](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#22-image-file-%EC%A0%95%EB%B3%B4-%EC%9D%BD%EA%B8%B0-imagej-gui)  
-#### [- 2.3. Image File 정보 읽기 (Python Script)](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#23-image-file-%EC%A0%95%EB%B3%B4-%EC%9D%BD%EA%B8%B0-imagej-python-script)  
-##### [--- 2.3.1. Image File Script 설명](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#231-imagej-python-script-%EC%84%A4%EB%AA%85)  
-#### [- 2.4. Metadata 읽기]()
+#### [- 2.2. Image File 정보 읽기](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#22-image-file-%EC%A0%95%EB%B3%B4-%EC%9D%BD%EA%B8%B0)  
+##### [--- 2.2.1. GUI](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#221-gui)  
+##### [--- 2.2.2. ImageJ Python Script](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#222-imagej-python-script)  
+##### [--- 2.2.3. ImageJ Python Script 설명](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#223-imagej-python-script-%EC%84%A4%EB%AA%85)  
+#### [- 2.3. Image Meta Data 읽기](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#23-image-meta-data-%EC%9D%BD%EA%B8%B0)  
+##### [--- 2.3.1. TEM Image (.dm3)](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#231-tem-image-dm3)  
+#### [--- 2.3.2 SEM Image (.tif)](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#232-sem-image-tif)
   
 ### 3. Image 한 장 다루기  
 #### - 3.1. File Load/Save  
