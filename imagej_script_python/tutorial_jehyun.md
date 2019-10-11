@@ -10,9 +10,11 @@
 #### [- 1.3. 시작화면 고정](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/1_installation.md#13-%EC%9C%88%EB%8F%84-%EC%8B%9C%EC%9E%91%ED%99%94%EB%A9%B4%EC%97%90-%EA%B3%A0%EC%A0%95)  
 
 ### [2. Image File 구조](/imagej_script_python/2_image_file.md)  
-#### - 2.1. Bitmap  
-#### - 2.2. Channel  
-#### - 2.3. Metadata (`.dm3`, `.tif`, `.jpg`)  
+#### [- 2.1. Image File 읽기](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#21-image-file-%EC%9D%BD%EA%B8%B0)  
+#### [- 2.2. Image File 정보 읽기 (GUI)](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#22-image-file-%EC%A0%95%EB%B3%B4-%EC%9D%BD%EA%B8%B0-imagej-gui)  
+#### [- 2.3. Image File 정보 읽기 (Python Script)](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#23-image-file-%EC%A0%95%EB%B3%B4-%EC%9D%BD%EA%B8%B0-imagej-python-script)  
+##### [└ 2.3.1. Image File Script 설명](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#24-imagej-python-script-%EC%84%A4%EB%AA%85)  
+#### [- 2.4. Metadata 읽기]()
   
 ### 3. Image 한 장 다루기  
 #### - 3.1. File Load/Save  
