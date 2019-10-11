@@ -75,7 +75,7 @@
 ![image_5](/imagej_script_python/images/2_image_5.PNG)  
 <br>  
 
-### 2.4. `ImageJ Python` Script 설명.  
+#### 2.3.1. `ImageJ Python` Script 설명.  
  
 1. package `ij`로부터 `IJ`를 불러옵니다.  
     ```python 
