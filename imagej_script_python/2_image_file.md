@@ -53,9 +53,8 @@
 
 ### 2.3. Image File 정보 읽기 (ImageJ Python Script).  
 * 우리의 목적은 `python` script를 이용해서 이미지를 처리하는 것입니다.  
-* `python` 명령어를 이용해서 이미지에 드러난 형상과 `pixel` 데이터를 처리하는 연습을 해 봅시다.  
-* 다시 `Boats`를 화면에 띄우고 script 창을 열어봅시다.  
-* `[File] > [New] > [Script..]`를 클릭해 봅시다.
+* `python` 명령어를 이용해서 이미지에 드러난 형상과 `pixel` 데이터를 처리하는 연습을 해 보겠습니다.  
+* 다시 `Boats`를 화면에 띄우고 script 창을 열어봅시다. `[File] > [New] > [Script..]`를 클릭하면 됩니다.  
 ![image_3](/imagej_script_python/images/2_image_3.PNG)
 <br>  
 
@@ -72,10 +71,35 @@
   모듈 불러오기(`import`) 정도만 다를 뿐 전반적으로 `python`의 문법을 따릅니다. [[Link](https://imagej.net/Jython_Scripting)]  
   
 * script 창에 아래와 같은 명령을 입력하고 실행해 봅시다.  
-* 실행 단축키는 `Ctrl + R` 입니다.  
+  실행 단축키는 `Ctrl + R` 입니다.  
 ![image_5](/imagej_script_python/images/2_image_5.PNG)  
-
-
 <br>  
 
-
+### 2.4. `ImageJ Python` Script 설명.  
+ 
+1. package `ij`로부터 `IJ`를 불러옵니다.  
+    ```python 
+    from ij import IJ
+    ```  
+    * `imagej`가 제공하는 package `ij` 안에는 `IJ`외에도 다양한 `class`가 있습니다. [[Link](https://javadoc.scijava.org/ImageJ1/ij/package-summary.html)]  
+    이 중 지금 우리가 호출할 명령어는 `IJ` 안에만 있으므로 다른 것들은 두고 `IJ`만 불러오는 것입니다.  
+  
+2. 현재 열려 있는 그림을 잡아옵니다.  
+    ```python 
+    imp = IJ.getImage()
+    ```  
+    * `IJ.getImage()`는 열려 있거나 마우스가 최근에 클릭한 이미지를 데이터로 메모리에 담는 명령입니다.  
+      `imp =`이 앞에 있으므로, 지금 열린 `Boat` 이미지를 통째로 `imp`라는 변수에 넣겠다는 뜻입니다.  
+    * 이제 `imp`에서 읽는 정보는 `Boat` 이미지의 정보이고, `imp`를 수정하면 `Boat`이미지가 수정됩니다.  
+    
+3. 그림의 정보를 출력합니다.  
+    ```python 
+    print(imp)
+    ```  
+    * `python`의 `print()`명령은 ()안에 담긴 변수의 내용물을 출력하라는 뜻입니다.  
+      예를 들어 `a = 1` 이라고 선언한 뒤에 `print(a)`를 하면 `a`에 담긴 `1`을 출력합니다.  
+    * 여기서는 `imp`에 담긴 내용을 출력하라는 명령이므로 아래 창에 출력된 것 처럼  
+      `img["boats.gif" (-5), 8-bit, 720x576x1x1x1]` 이라는 결과물이 나옵니다.  
+      * `img` : 
+      
+  
