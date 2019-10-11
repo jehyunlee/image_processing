@@ -29,3 +29,10 @@
 
 * `ImageJ` 업데이트가 완료되었습니다. 이제 사용할 준비가 된 것입니다.  
 ![install_7](/imagej_script_python/images/1_install_7.PNG)  
+
+* 윈도 시작화면에 고정합시다.  
+  `ImageJ`프로그램에서 우클릭 후 `시작 화면에 고정`을 클릭하면,  
+![install_8](/imagej_script_python/images/1_install_8.PNG)  
+
+  시작버튼을 누르고 클릭하기 좋게 아이콘이 박힙니다.  
+![install_9](/imagej_script_python/images/1_install_9.PNG)  
