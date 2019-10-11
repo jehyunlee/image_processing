@@ -100,6 +100,13 @@
       예를 들어 `a = 1` 이라고 선언한 뒤에 `print(a)`를 하면 `a`에 담긴 `1`을 출력합니다.  
     * 여기서는 `imp`에 담긴 내용을 출력하라는 명령이므로 아래 창에 출력된 것 처럼  
       `img["boats.gif" (-5), 8-bit, 720x576x1x1x1]` 이라는 결과물이 나옵니다.  
-      * `img` : 
-      
-  
+      * `img` : "image data이고, 상세 정보는 []와 같음".  
+      * `"boats.gif"` : 파일명  
+      * `(-5) : ID  
+      * `8-bit` : `pixel`의 data level (<img src="https://latex.codecogs.com/gif.latex?2^8" /> = 256)  
+      * `720x576` : `width` x `height`  
+      * 첫번째 `x1` : `channels`    
+      * 두번째 `x1` : `slices`  
+      * 세번째 `x1` : `frames`        
+    * `width`, `height`, `channels`, `slices`, `frames` 는 이미지 데이터에 접근할 때 필요한 주소가 됩니다.  
+ 
