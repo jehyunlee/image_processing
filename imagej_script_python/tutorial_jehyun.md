@@ -13,7 +13,7 @@
 #### [- 2.1. Image File 읽기](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#21-image-file-%EC%9D%BD%EA%B8%B0)  
 #### [- 2.2. Image File 정보 읽기 (GUI)](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#22-image-file-%EC%A0%95%EB%B3%B4-%EC%9D%BD%EA%B8%B0-imagej-gui)  
 #### [- 2.3. Image File 정보 읽기 (Python Script)](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#23-image-file-%EC%A0%95%EB%B3%B4-%EC%9D%BD%EA%B8%B0-imagej-python-script)  
-##### [└ 2.3.1. Image File Script 설명](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#24-imagej-python-script-%EC%84%A4%EB%AA%85)  
+##### [--- 2.3.1. Image File Script 설명](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#24-imagej-python-script-%EC%84%A4%EB%AA%85)  
 #### [- 2.4. Metadata 읽기]()
   
 ### 3. Image 한 장 다루기  
