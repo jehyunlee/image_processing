@@ -140,7 +140,7 @@
 ![image_11](/imagej_script_python/images/2_image_11.PNG)  
 <br>  
 
-* 그리고 작은 창에서 한 줄에 몇 글자를 보여줄 지를 선택하면,
+* 그리고 작은 창에서 한 줄에 몇 글자를 보여줄 지를 선택하면,  
 ![image_13](/imagej_script_python/images/2_image_13.PNG)  
 <br>  
 
