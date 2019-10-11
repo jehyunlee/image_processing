@@ -108,5 +108,5 @@
       * 첫번째 `x1` : `channels`    
       * 두번째 `x1` : `slices`  
       * 세번째 `x1` : `frames`        
-    * `width`, `height`, `channels`, `slices`, `frames` 는 이미지 데이터에 접근할 때 필요한 주소가 됩니다.  
+    * `width`, `height`, `channels`, `slices`, `frames` 는 이미지 데이터에 접근하는 주소가 됩니다.  
  
