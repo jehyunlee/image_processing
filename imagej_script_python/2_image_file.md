@@ -119,7 +119,7 @@
 ### 2.3. Image Meta Data 읽기.  
 * Image Data가 Image가 어떻게 구성되어 있는지에 대한 정보라면,  
   Image Meta Data는 Image가 어떻게 형성되어 있는지에 대한 정보입니다.  
-* `SEM`이나 `TEM`같은 현미경 사진 분석에 중요한 nm/pixel, 가속전압 등이 있습니다.  
+* `SEM`이나 `TEM`같은 현미경 사진 분석에 중요한 nm/pixel, 논문 작성시 필요한 가속전압 등이 있습니다.  
 
 #### 2.3.1. TEM Image (`.dm3`) 
 * `ImageJ`에서는 `Gatan Digital Micrograph`의 `dm3` format을 지원합니다.  
@@ -128,7 +128,6 @@
 * `Resolution`, `Pixel size`, `Voltage`, `Magnification`등의 정보가 보입니다.  
 ![image_10](/imagej_script_python/images/2_image_10.PNG)  
 <br>  
-
 #### 2.3.2. SEM Image (`.tif`) 
 * `ImageJ`에서 `tif`의 meta data를 보기 위해서는 별도의 플러그인을 설치해야 합니다.    
 * [다운로드 링크](https://imagej.nih.gov/ij/plugins/tiff-tags.html)에서 `tiff_tags.jar`를 다운받은 후 `ImageJ`를 재시작합니다.  
