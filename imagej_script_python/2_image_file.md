@@ -140,6 +140,11 @@
 ![image_11](/imagej_script_python/images/2_image_11.PNG)  
 <br>  
 
-![image_12](/imagej_script_python/images/2_image_12.PNG)  
+* 그리고 작은 창에서 한 줄에 몇 글자를 보여줄 지를 선택하면,
+![image_13](/imagej_script_python/images/2_image_13.PNG)  
+<br>  
+
+* 아래와 같은 창이 뜨는데, **모든 중요 정보가 한 줄로 나타나서 별로 유용하지 않아 사용을 권하지 않습니다.**
+![image_15](/imagej_script_python/images/2_image_15.PNG)  
 <br>  
 
