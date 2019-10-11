@@ -12,7 +12,12 @@
 ![image_0](/imagej_script_python/images/2_image_0.PNG)
 <br>  
 
-### 2.2. Image File 정보 읽기 (ImageJ GUI).  
+### 2.2. Image File 정보 읽기.  
+* Image File은 `pixel`로 이루어진 그림 외에도 여러 정보를 담고 있습니다.  
+  가로세로 몇 개의 `pixel`로 구성되어 있는지, `Greyscale`은 몇 단계로 구성되어 있는지 등입니다.  
+* Image Processing의 근본이 되는 데이터이므로, 이 정보들을 확인하는 방법을 알아봅시다.  
+
+#### 2.2.1. GUI  
 * 아래 왼쪽과 같이 흑백 배 사진을 보실 수 있습니다.  
 * 사진 왼쪽 위를 자세히 보시면 `720x576 pixels; 8-bit, 405K`라는 정보가 나와 있습니다만 조금 더 자세히 알아봅시다.  
 * `[Image] > [Show Info]`를 클릭하시면 이미지의 전체적인 정보를 보실 수 있습니다.  
@@ -51,7 +56,7 @@
 ![image_8](/imagej_script_python/images/2_image_8.PNG)
 <br>  
 
-### 2.3. Image File 정보 읽기 (ImageJ Python Script).  
+#### 2.2.2. `ImageJ Python` Script.  
 * 우리의 목적은 `python` script를 이용해서 이미지를 처리하는 것입니다.  
 * `python` 명령어를 이용해서 이미지에 드러난 형상과 `pixel` 데이터를 처리하는 연습을 해 보겠습니다.  
 * 다시 `Boats`를 화면에 띄우고 script 창을 열어봅시다. `[File] > [New] > [Script..]`를 클릭하면 됩니다.  
@@ -75,7 +80,7 @@
 ![image_5](/imagej_script_python/images/2_image_5.PNG)  
 <br>  
 
-#### 2.3.1. `ImageJ Python` Script 설명.  
+#### 2.2.3. `ImageJ Python` Script 설명.  
  
 1. package `ij`로부터 `IJ`를 불러옵니다.  
     ```python 
@@ -109,4 +114,22 @@
       * 두번째 `x1` : `slices`  
       * 세번째 `x1` : `frames`        
     * `width`, `height`, `channels`, `slices`, `frames` 는 이미지 데이터에 접근하는 주소가 됩니다.  
- 
+ <br>  
+
+### 2.3. Image Meta Data 읽기.  
+* Image Data가 Image가 어떻게 구성되어 있는지에 대한 정보라면,  
+  Image Meta Data는 Image가 어떻게 형성되어 있는지에 대한 정보입니다.  
+* `SEM`이나 `TEM`같은 현미경 사진 분석에 중요한 nm/pixel, 가속전압 등이 있습니다.  
+
+#### 2.3.1. TEM Image (`.dm3`) 
+* `ImageJ`에서는 `Gatan Digital Micrograph`의 `dm3` format을 지원합니다.  
+* 별도의 옵션이나 설치 없이 `[File] > [Open]`을 통해 `dm3`파일을 열 수 있고,  
+  `Show Info`를 하면 다음과 같은 meta data 전체를 볼 수 있습니다.  
+* `Resolution`, `Pixel size`, `Voltage`, `Magnification`등의 정보가 보입니다.  
+![image_10](/imagej_script_python/images/2_image_10.PNG)  
+<br>  
+
+#### 2.3.2. SEM Image (`.tif`) 
+* `ImageJ`에서 `tif`의 meta data를 보기 위해서는 별도의 플러그인을 설치해야 합니다.    
+* [다운로드 링크](https://imagej.nih.gov/ij/plugins/tiff-tags.html)에서 `tiff_tags.jar`를 다운받은 후 `ImageJ`를 재시작합니다.  
+
