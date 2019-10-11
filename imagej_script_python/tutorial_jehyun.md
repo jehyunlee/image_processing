@@ -17,7 +17,7 @@
 ##### [--- 2.2.3. ImageJ Python Script 설명](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#223-imagej-python-script-%EC%84%A4%EB%AA%85)  
 #### [- 2.3. Image Meta Data 읽기](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#23-image-meta-data-%EC%9D%BD%EA%B8%B0)  
 ##### [--- 2.3.1. TEM Image (.dm3)](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#231-tem-image-dm3)  
-#### [--- 2.3.2 SEM Image (.tif)](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#232-sem-image-tif)
+##### [--- 2.3.2 SEM Image (.tif)](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#232-sem-image-tif)
   
 ### 3. Image 한 장 다루기  
 #### - 3.1. File Load/Save  
