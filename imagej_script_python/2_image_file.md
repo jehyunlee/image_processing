@@ -129,6 +129,17 @@
 ![image_10](/imagej_script_python/images/2_image_10.PNG)  
 
 #### 2.3.2. SEM Image (`.tif`) 
-* `ImageJ`에서 `tif`의 meta data를 보기 위해서는 별도의 플러그인을 설치해야 합니다.    
+* `ImageJ`에서 `.tif`파일을 연 후, `Show Info`를 하면 `Resolution`과 `Pixel Size`정도만 보입니다.  
+![image_14](/imagej_script_python/images/2_image_14.PNG)  
+<br>  
+
+* `ImageJ`에서 `tif`의 meta data 전체를 보기 위해서는 별도의 플러그인을 설치해야 합니다.    
 * [다운로드 링크](https://imagej.nih.gov/ij/plugins/tiff-tags.html)에서 `tiff_tags.jar`를 다운받은 후 `ImageJ`를 재시작합니다.  
+* 그리고 `[Plugins] > [TIFF Tags]`를 선택하면 파일 열기 창이 뜨는데, 여기에서 파일을 선택합니다.  
+
+![image_11](/imagej_script_python/images/2_image_11.PNG)  
+<br>  
+
+![image_12](/imagej_script_python/images/2_image_12.PNG)  
+<br>  
 
