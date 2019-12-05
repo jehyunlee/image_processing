@@ -13,7 +13,7 @@
 * `python`등의 프로그래밍 언어는 굉장히 많은 명령어와 변수를 다루어야 하기 때문에 `통합 개발 환경 (IDE: Integrated Development Environment)`를 통한 명령어와 변수의 자동 완성 기능을 제공하고 있습니다.  
 * 그러나 `ImageJ`에서 제공하는 개발환경은 이 점에서 매우 **불편**하기 때문에 다른 환경을 사용하고자 합니다.  
 * [`notepad++`](https://en.wikipedia.org/wiki/Notepad%2B%2B)를 [다운로드](https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v7.8.1/npp.7.8.1.Installer.exe)받아 설치합니다. 앞으로 개발은 여기에서 진행하겠습니다.  
-* `npp.버전.installer.exe`를 실행 후 `[다음]`만 반복해서 설치하셔도 됩니다.
+* `npp.버전.installer.exe`를 실행 후 `[다음]`만 반복해서 설치하셔도 됩니다.  
 **※ 주의 ※** 사용자 정의 설치를 하는 것은 좋으나 `Auto-completion Files`는 선택을 유지하고 있어야 합니다.   
 ![img](https://github.com/jehyunlee/image_processing/raw/master/imagej_script_python/images/3_file_1.PNG)  
 
@@ -22,7 +22,27 @@
 * 언어를 `Python`으로 설정해줍니다. `언어` > `P` > `Python`을 체크해주세요.   
 ![img](https://github.com/jehyunlee/image_processing/raw/master/imagej_script_python/images/3_file_2.PNG)  
 
-* i만 입력해도 pull-down 메뉴가 뜨면서 `python`에서 사용하는 i로 시작하는 명령어 등이 펼쳐지는 것을 보실 수 있습니다.  
+* i만 입력해도 pull-down 메뉴가 뜨면서 `python`에서 사용하는 i로 시작하는 명령어 등이 펼쳐집니다.  
 * 이들 중 하나를 골라서 입력하셔도 좋고, 이걸 보고 오타를 줄이셔도 좋습니다.  
 ![img](https://github.com/jehyunlee/image_processing/raw/master/imagej_script_python/images/3_file_3.PNG)  
+
+* 간단하게 화면에 떠있는 이미지를 다른 이름으로 저장해보겠습니다.
+* [지난 시간에 배운 것](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#223-imagej-python-script-%EC%84%A4%EB%AA%85)처럼 이미지를 메모리에 불러옵니다.
+* `ImageJ`에 `Boats.gif`와 script 입력창이 떠있을 겁니다.  
+  `notepad++`에 다음과 같이 코드를 작성하고 script창에 붙여넣습니다.  
+    ```python
+    from ij import IJ
+
+    imp = IJ.getImage()
+    print(imp)
+
+    from ij.io import FileSaver
+    fs = FileSaver(imp)
+    fs.save()
+    ```
+
+* `[저장]`을 눌러서 저장합시다.  
+![img](https://github.com/jehyunlee/image_processing/raw/master/imagej_script_python/images/3_file_4.PNG)  
+
+
 
