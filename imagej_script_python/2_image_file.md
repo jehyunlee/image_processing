@@ -107,7 +107,7 @@
       `img["boats.gif" (-5), 8-bit, 720x576x1x1x1]` 이라는 결과물이 나옵니다.  
       * `img` : "image data이고, 상세 정보는 []와 같음".  
       * `"boats.gif"` : 파일명  
-      * `(-5) : ID  
+      * `(-5)` : ID  
       * `8-bit` : `pixel`의 data level (<img src="https://latex.codecogs.com/gif.latex?2^8" /> = 256)  
       * `720x576` : `width` x `height`  
       * 첫번째 `x1` : `channels`    
