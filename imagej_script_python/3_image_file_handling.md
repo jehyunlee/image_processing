@@ -22,7 +22,7 @@
 * 언어를 `Python`으로 설정해줍니다. `언어` > `P` > `Python`을 체크해주세요.   
 ![img](https://github.com/jehyunlee/image_processing/raw/master/imagej_script_python/images/3_file_2.PNG)  
 
-* i만 입력해도 pull-down 메뉴가 뜨면서 `python`에서 사용하는 i로 시작하는 명령어 등이 펼쳐짐을 알 수 있습니다.  
+* i만 입력해도 pull-down 메뉴가 뜨면서 `python`에서 사용하는 i로 시작하는 명령어 등이 펼쳐지는 것을 보실 수 있습니다.  
 * 이들 중 하나를 골라서 입력하셔도 좋고, 이걸 보고 오타를 줄이셔도 좋습니다.  
 ![img](https://github.com/jehyunlee/image_processing/raw/master/imagej_script_python/images/3_file_3.PNG)  
 
