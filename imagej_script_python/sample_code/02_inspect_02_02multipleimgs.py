@@ -14,18 +14,9 @@ def getStatistics(imp):
   
   
 # 이미지를 읽어올 폴더:  
-folder = "C:\Arbeitplatz//03_ImageJ_script_learning\sample_code\images\SEM"
-# Error: 
-# folder = r"C://Arbeitplatz//03_ImageJ_script_learning//sample_code//images//SEM"
-
+# Error: folder = r"C://Arbeitplatz//03_ImageJ_script_learning//sample_code//images//SEM"
 # Error: folder = r"C:\Arbeitplatz\03_ImageJ_script_learning\sample_code\images\SEM"
-# folder = r"C:\Arbeitplatz\03_ImageJ_script_learning\sample_code\images\SEM" # unicode 문자열을 raw 문자열로 바꿔주기
-
-print(folder)
-#path = path[:-21]
-#print(path)
-#folder = path + folder
-
+folder = r"C:\Arbeitplatz\03_ImageJ_script_learning\sample_code\images\SEM" # unicode 문자열을 raw 문자열로 바꿔주기
   
 # 확장자가 ".tif"인 파일들로부터 데이터 읽어오기.
 for filename in os.listdir(folder):  
