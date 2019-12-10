@@ -10,7 +10,7 @@
     [Java HotSpot(TM) 64-Bit Server VM (Oracle Corporation)]
 
     # 이상한 점: 실제 python 3~3.5 사이가 아닌가??
-    python 3 이후 문법인 print()로 작동. 2.7대의 print 문으로는 작동하지 않음.
+    python 3 이후 문법인 print()로 작동. 2.7대의 print 문으로도 작동.
     python 3 이후에 도입된 str.format 지원: '{}'.format()
     python 3.6 이후에 도입된 f-string은 미지원: f'{}'
 
@@ -23,6 +23,7 @@
     print()
     if, elif, else
     for, while
+    try, except, finally
     
     # 연산자
     //, %, +=, -= 등등
@@ -32,4 +33,19 @@
     
     # 해결책
     일일이 강의하기보다 링크 주기
+
+3. ImageJ 장점
+    # Java 활용
+    interactive한 GUI 제작이 용이: parameter에 따라 즉각 반응    
+    
+4. Java 사용시 주의점
+    # JFrame
+    * html 문법을 사용시에는 <html>, </html> 로 감싸줘야 함.
+
+5. ImageJ Jython 개발에 필요한 정보
+    # plugin들의 import 경로
+    * ex) Normalize Local Contrast : from mpicbg.ij.plugin import NormalizeLocalContrast
+
+6. 12/19 발표자료
+    # Local Contrast Normalize 하나는 제대로 이해하고 발표하자.
     
