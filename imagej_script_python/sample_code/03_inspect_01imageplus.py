@@ -5,13 +5,13 @@ from ij import IJ, ImagePlus
 imp = IJ.getImage()
 
 # 이미지 정보 추출
-print("title:", imp.title)
-print("width:", imp.width)
-print("height:", imp.height)  
-print("number of pixels:", imp.width * imp.height)  
-print("number of slices:", imp.getNSlices())  
-print("number of channels:", imp.getNChannels())  
-print("number of time frames:", imp.getNFrames())  
+print "title:", imp.title
+print "width:", imp.width
+print "height:", imp.height  
+print "number of pixels:", imp.width * imp.height  
+print "number of slices:", imp.getNSlices()  
+print "number of channels:", imp.getNChannels()  
+print "number of time frames:", imp.getNFrames()  
   
 types = {ImagePlus.COLOR_RGB : "RGB",  
          ImagePlus.GRAY8 : "8-bit",  
@@ -19,4 +19,4 @@ types = {ImagePlus.COLOR_RGB : "RGB",
          ImagePlus.GRAY32 : "32-bit",  
          ImagePlus.COLOR_256 : "8-bit color"}  
   
-print("image type:", types[imp.type])
+print "image type:", types[imp.type]

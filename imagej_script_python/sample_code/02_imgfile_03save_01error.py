@@ -9,5 +9,5 @@ fs = FileSaver(imp)
 folder = "C:\Arbeitplatz\03_ImageJ_script_learning\sample_code\images" # \ 가 에러 유발
 
 filepath = folder + "\" + "boats.tif"
-print(filepath)
+print filepath
 fs.saveAsTiff(filepath)

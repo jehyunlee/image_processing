@@ -17,8 +17,8 @@ stats = IS.getStatistics(ip, options, imp.getCalibration())
   
   
 # 통계 데이터 출력  
-print("Image statistics for", imp.title)
-print("Mean:", stats.mean)  
-print("Median:", stats.median)  
-print("Min and max:", stats.min, "-", stats.max)  
+print "Image statistics for", imp.title
+print "Mean:", stats.mean  
+print "Median:", stats.median  
+print "Min and max:", stats.min, "-", stats.max
             

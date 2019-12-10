@@ -10,7 +10,7 @@ ip = imp.getProcessor().convertToFloat()
 # pixel 정보
 pixels = ip.getPixels()
 
-print("Image is", imp.title, "of type", imp.type)
+print "Image is", imp.title, "of type", imp.type
 
 # pixel 최소값 구하기
 
@@ -20,7 +20,7 @@ for i in xrange(len(pixels)):
     if pixels[i] < minimum:
         minimum = pixels[i]
  
-print("1. Minimum is:", minimum)
+print "1. Minimum is:", minimum
 
 # 방법 2. pixel을 list 형태로 iterate
 minimum = MAX_FLOAT
@@ -28,9 +28,9 @@ for pix in pixels:
     if pix < minimum:
         minimum = pix
 
-print("2. Minimum is:", minimum)
+print "2. Minimum is:", minimum
 
 # 방법 3. 내장(built-in)함수 사용
 minimum = reduce(min, pixels)
 
-print("3. Minimum is:", minimum)
+print "3. Minimum is:", minimum

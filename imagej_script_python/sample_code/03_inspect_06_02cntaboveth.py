@@ -11,5 +11,5 @@ mean = sum(pixels)/len(pixels)
 # 평균 이상 pixel 수 세기
 n_pix_above = reduce(lambda count, a: count + 1 if a > mean else count, pixels)
 
-print("Mean value:", mean)
-print("{:5.2f} pixels above mean".format(n_pix_above/float(len(pixels)) *100))
+print "Mean value:", mean
+print "%5.2f %% pixels above mean" % (n_pix_above/float(len(pixels)) *100)

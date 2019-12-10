@@ -3,7 +3,7 @@
 from ij import IJ
 
 imp = IJ.getImage()
-print(imp)
+print imp
 
 from ij.io import FileSaver
 fs = FileSaver(imp)

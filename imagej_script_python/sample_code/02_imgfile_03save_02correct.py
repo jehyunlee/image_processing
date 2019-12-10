@@ -9,5 +9,5 @@ fs = FileSaver(imp)
 folder = "C://Arbeitplatz//03_ImageJ_script_learning//sample_code//images" # //로 고쳐서 해결
 
 filepath = folder + "//" + "boats.tif"
-print(filepath)
+print filepath
 fs.saveAsTiff(filepath)

@@ -28,5 +28,5 @@ def largestImage(imp1, imp2):
 
 largest = reduce(largestImage, imps)
 
-print("Largest image=", largest.title)
-print("Largest area=", largestArea) 
+print "Largest image=", largest.title
+print "Largest area=", largestArea 

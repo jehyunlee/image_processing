@@ -21,17 +21,17 @@ folder = r"C:\Arbeitplatz\03_ImageJ_script_learning\sample_code\images\SEM" # un
 # 확장자가 ".tif"인 파일들로부터 데이터 읽어오기.
 for filename in os.listdir(folder):  
   if filename.endswith(".tif"):  
-    print("Processing", filename)
+    print "Processing", filename
     fullpath = os.path.join(folder, filename)
-    print("fullpath", fullpath)  
+    print "fullpath", fullpath  
     imp = IJ.openImage(fullpath)  
     if imp is None:  
-      print("Could not open image from file:", filename)  
+      print "Could not open image from file:", filename
       continue  
     mean, median, min, max = getStatistics(imp)  
-    print("Image statistics for", imp.title)  
-    print("Mean:", mean)  
-    print("Median:", median)  
-    print("Min and max:", min, "-", max)  
+    print "Image statistics for", imp.title  
+    print "Mean:", mean  
+    print "Median:", median  
+    print "Min and max:", min, "-", max  
   else:  
-    print("Ignoring", filename)
+    print "Ignoring", filename

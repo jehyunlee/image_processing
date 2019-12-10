@@ -10,7 +10,7 @@ mean = sum(pixels)/len(pixels)
 
 # 평균값 이상 pixel의 index를 list로 저장
 above = filter(lambda i: pixels[i] > mean, xrange(len(pixels)))
-print("Number of pixels above mean value:", len(above))
+print "Number of pixels above mean value:", len(above)
 
 # 평균값 이상 pixel들의 center of mass 계산
 
@@ -25,16 +25,16 @@ for i in above:
     yc += i // width # index i pixel의 y 좌표
 xc = xc/len(above)
 yc = yc/len(above)
-print(xc, yc)
+print xc, yc
 
 # Method 2: sum과 map 사용
 xc = sum(map(lambda i: i%width, above)) / len(above)
 yc = sum(map(lambda i: i/width, above)) / len(above)
-print(xc, yc)
+print xc, yc
 
 # Method 3: list "above"를 단 한번만 iterate
 xc, yc = [d/len(above) for d in reduce(lambda c, i: [c[0] + i % width, c[1] + i / width], above, [0, 0])] 
-print(xc, yc)
+print xc, yc
 
 # Method 4: list "above"를 단 한번만 iterate하지만 더 깔끔하고 성능 좋게
 from functools import partial
@@ -46,4 +46,4 @@ def accum(width, c, i):
     return c
 
 xc, yc = [d/len(above) for d in reduce(partial(accum, width), above, [0, 0])]
-print(xc, yc)
+print xc, yc

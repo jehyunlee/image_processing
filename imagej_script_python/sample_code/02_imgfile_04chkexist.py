@@ -11,11 +11,11 @@ folder = "C://Arbeitplatz//03_ImageJ_script_learning//sample_code//images"
 
 # image 저장 폴더가 존재하는지 확인
 if path.exists(folder) and path.isdir(folder):
-    print("folder exists:", folder)
+    print "folder exists:", folder
     filepath = path.join(folder, "boats.tif") 
     if path.exists(filepath):
-        print("File exists! Not saving the image, would overwrite a file!")
+        print "File exists! Not saving the image, would overwrite a file!"
     elif fs.saveAsTiff(filepath)
-        print("File save successfully at", filepath)
+        print "File save successfully at", filepath
 else:
-    print("Folder does not exist or it's not a folder!")
+    print "Folder does not exist or it's not a folder!"
