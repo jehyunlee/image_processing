@@ -3,7 +3,22 @@
 * 최대한 간결하게 필수적인 지식만 전달하고자 합니다.  
 * 자세한 정보를 원하시면 공식 매뉴얼을 참고하시기 바랍니다 : [[Link](https://imagej.nih.gov/ij/docs/guide/146-7.html#toc-Section-7)]
 
-### 2.1. Image File 읽기.  
+### 2.1. Image File 구조
+* `ImageJ`로 다룰 image는 `bitmap` 형식입니다.  
+* 전체 이미지는 `pixel`이라 불리는 점의 집합으로 이루어져 있습니다.
+* 원점은 좌측 상단이며 아래 이미지는 256x256개의 pixel을 가지고 있습니다.
+![](/imagej_script_python/images/2_image_17.PNG)
+<br>
+
+* 이미지 파일에는 `Channels`, `Slices`, `Frames` 속성이 있습니다.  
+  `Channel`: 하나의 `pixel`을 몇 가지의 데이터로 표현하는지.   
+  `Slices`: 입체적인 시료를 몇 개의 층으로 나누어 분석했는지.  
+  `Frames`: 몇 장의 연속된 이미지를 합쳤는지.
+  
+![](/imagej_script_python/images/2_image_16.PNG)
+<br>
+
+### 2.2. `ImageJ`에서 Image File 읽기.  
 * `ImageJ`에서는 다른 프로그램처럼 `[File] > [Open]`을 통해서 이미지 파일을 열 수 있습니다.  
 * 각자 파일은 조금 나중에 열어보기로 하고, 여기서는 동일한 설명을 위해 같은 파일을 열어보겠습니다.  
 * `ImageJ`에서 제공하는 Sample Image를 다음과 같이 열 수 있습니다.  
@@ -12,12 +27,11 @@
 ![image_0](/imagej_script_python/images/2_image_0.PNG)
 <br>  
 
-### 2.2. Image File 정보 읽기.  
-* Image File은 `pixel`로 이루어진 그림 외에도 여러 정보를 담고 있습니다.  
+### 2.3. Image File 정보 읽기.  
+* Image File에 담긴 정보를 읽는 방법을 알아봅시다.
   가로세로 몇 개의 `pixel`로 구성되어 있는지, `Greyscale`은 몇 단계로 구성되어 있는지 등입니다.  
-* Image Processing의 근본이 되는 데이터이므로, 이 정보들을 확인하는 방법을 알아봅시다.  
 
-#### 2.2.1. GUI  
+#### 2.3.1. GUI  
 * 아래 왼쪽과 같이 흑백 배 사진을 보실 수 있습니다.  
 * 사진 왼쪽 위를 자세히 보시면 `720x576 pixels; 8-bit, 405K`라는 정보가 나와 있습니다만 조금 더 자세히 알아봅시다.  
 * `[Image] > [Show Info]`를 클릭하시면 이미지의 전체적인 정보를 보실 수 있습니다.  
@@ -34,10 +48,6 @@
 * n bit는 <img src="https://latex.codecogs.com/gif.latex?2^n" />개의 정보를 담을 수 있으므로, 8 bit는 한 `pixel`의 데이터를 <img src="https://latex.codecogs.com/gif.latex?2^8" /> = 256 단계로 표현할 수 있습니다.  
   따라서 `Display range`는 0(black)-255(white)까지의 값을 가질 수 있습니다.  
 
-* 이 외에도 `Channels`, `Slices`, `Frames` 속성이 있으며 각기 다음과 같은 의미를 가집니다.  
-  `Channel`: 하나의 `pixel`을 몇 가지의 데이터로 표현하는지. ex) 3개의 `channel`인 경우 흔히 `RGB`로 표현합니다.  
-  `Slices`: 입체적인 시료를 여러 층으로 나누어 분석할 때 몇 개의 층으로 분석했는지.  
-  `Frames`: 몇 장의 연속왼 이미지를 합쳤는지. ex) 동영상을 구성하는 이미지 수.
 * `Channels`, `Slices`, `Frames` 속성은 `[Image] > [Properties...]` 에서 다음과 같이 확인 가능합니다.  
 ![image_6](/imagej_script_python/images/2_image_6.PNG)
 <br>  
@@ -48,15 +58,15 @@
 ![image_7](/imagej_script_python/images/2_image_7.PNG)
 <br>  
 
-* `Image Info`: 파일명, 이미지 크기, `Bits per pixel`, `Frame` 관련 정보가 보입니다.  
+* `Image Info`: 파일명, 이미지 크기, `Bits per pixel`, `Frame` 관련 정보입니다.  
 ![image_9](/imagej_script_python/images/2_image_9.PNG)
 <br>  
 
-* `Image Properties...`: `Channels`, `Slices`, `Frames` 정보가 보입니다.   
+* `Image Properties...`: `Channels`, `Slices`, `Frames` 정보입니다.   
 ![image_8](/imagej_script_python/images/2_image_8.PNG)
 <br>  
 
-#### 2.2.2. `ImageJ Python` Script.  
+#### 2.3.2. `ImageJ Python` Script.  
 * 우리의 목적은 `python` script를 이용해서 이미지를 처리하는 것입니다.  
 * `python` 명령어를 이용해서 이미지에 드러난 형상과 `pixel` 데이터를 처리하는 연습을 해 보겠습니다.  
 * 다시 `Boats`를 화면에 띄우고 script 창을 열어봅시다. `[File] > [New] > [Script..]`를 클릭하면 됩니다.  
@@ -69,18 +79,17 @@
 ![image_4](/imagej_script_python/images/2_image_4.PNG)
 <br>  
 
-
 * 엄밀히 말하면, `ImageJ`에서 지원하는 것은 `Python`이 아니라 `Jython`입니다.   
   `Jython`은 `JAVA` 플랫폼에서 `Python`을 구현한 것으로, `JAVA` class를 불러올 수 있습니다. [[Link](https://jythonbook-ko.readthedocs.io/en/latest/LangSyntax.html)]  
-* `ImageJ` 자체가 `JAVA`로 구축되어 있으므로 이를 활용하기 위해 `Jython`을 택한 것으로 판단되며,  
-  모듈 불러오기(`import`) 정도만 다를 뿐 전반적으로 `python`의 문법을 따릅니다. [[Link](https://imagej.net/Jython_Scripting)]  
+* `JAVA` 기능을 활용해 UI를 제작할 수 있습니다.    
+  이미지 분석 및 조작 부분은 `python`의 문법을 따릅니다. [[Link](https://imagej.net/Jython_Scripting)]  
   
 * script 창에 아래와 같은 명령을 입력하고 실행해 봅시다.  
   실행 단축키는 `Ctrl + R` 입니다.  
 ![image_5](/imagej_script_python/images/2_image_5.PNG)  
 <br>  
 
-#### 2.2.3. `ImageJ Python` Script 설명.  
+#### 2.3.3. `ImageJ Python` Script 설명.  
  
 1. package `ij`로부터 `IJ`를 불러옵니다.  
     ```python 
@@ -116,19 +125,19 @@
     * `width`, `height`, `channels`, `slices`, `frames` 는 이미지 데이터에 접근하는 주소가 됩니다.  
  <br>  
 
-### 2.3. Image Meta Data 읽기.  
+### 2.4. Image Meta Data 읽기.  
 * Image Data가 Image가 어떻게 구성되어 있는지에 대한 정보라면,  
   Image Meta Data는 Image가 어떻게 형성되어 있는지에 대한 정보입니다.  
 * `SEM`이나 `TEM`같은 현미경 사진 분석에 중요한 nm/pixel, 논문 작성시 필요한 가속전압 등이 있습니다.  
 
-#### 2.3.1. TEM Image (`.dm3`) 
+#### 2.4.1. TEM Image (`.dm3`) 
 * `ImageJ`에서는 `Gatan Digital Micrograph`의 `dm3` format을 지원합니다.  
 * 별도의 옵션이나 설치 없이 `[File] > [Open]`을 통해 `dm3`파일을 열 수 있고,  
   `Show Info`를 하면 다음과 같은 meta data 전체를 볼 수 있습니다.  
 * `Resolution`, `Pixel size`, `Voltage`, `Magnification`등의 정보가 보입니다.  
 ![image_10](/imagej_script_python/images/2_image_10.PNG)  
 
-#### 2.3.2. SEM Image (`.tif`) 
+#### 2.4.2. SEM Image (`.tif`) 
 * `ImageJ`에서 `.tif`파일을 연 후, `Show Info`를 하면 `Resolution`과 `Pixel Size`정도만 보입니다.  
 ![image_14](/imagej_script_python/images/2_image_14.PNG)  
 <br>  
