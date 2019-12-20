@@ -1,7 +1,7 @@
 # `Fiji` (`ImageJ`) Scripting 튜토리얼 + 코드 토막  
 
 > **대상** : `Python`, `JAVA`, `ImageJ`, `Linux`에 익숙하지 않은 입문자  
-> **환경** : [`ImageJ-Fiji`](https://imagej.net/Fiji), `Python 3`, `Windows 10`  
+> **환경** : [`ImageJ-Fiji`](https://imagej.net/Fiji), `Jython 2.7`, `Windows 10`  
 > **문의** : 이제현 (email: jehyun.lee@gmail.com)  
 
 ### [1. ImageJ-Fiji 설치](/imagej_script_python/1_installation.md)
