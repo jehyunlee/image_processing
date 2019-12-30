@@ -78,6 +78,7 @@ date: 2019-12-19 11:59:13
 * 모듈에 함수가 여럿 있고 이들을 모두 부르고 싶다면 `from [모듈 이름 ] import *`을 사용하면 됩니다.
 
   **※ 주의 ※** 여러  `module`을 이렇게 부르면, 함수 이름이 겹칠 때 마지막 함수만 사용 가능합니다.
+<br>
 
 ### 4.3. `print`: 출력하기
 
@@ -116,11 +117,13 @@ date: 2019-12-19 11:59:13
   # The answer is 1 :       (3.14)
   # Others are wrong!
   ```
+<br>
 
 ### 4.4. `if`, `elif`, `else`: 조건문
 
 * 특정 조건을 만족하는 부분만 처리하는 등, 조건에 행동을 다르게 할 때 사용합니다.
 * `if [조건]:` 밑에 조건을 만족할 때 실행할 행동을 들여쓰기를 해서 작성합니다.
+  
   ```python
   if 조건문:
       수행할 문장1
@@ -201,6 +204,113 @@ date: 2019-12-19 11:59:13
   # 출력결과:
   # Taxi!
   ```
+  
+  <br>
+  
+### 4.5. `for`, `while` : 조건문
+
+* `for`문은 이어지는 리스트의 원소들을 차례로 대입하며 아래 문장을 실행합니다..
+
+* 리스트 대신 튜플이나 문자열이 올 수 있습니다.
+
+#### 4.5.1. 기본 사용법
+
+* `for` 문 뒤의 리스트 원소를 하나씩 가져와 하단의 명령어를 실행합니다.
+
+  ```python
+  test_list = ['one', 'two', 'three']
+  for i in test_list:
+      print i
+  
+  # 출력결과:
+  # one
+  # two
+  # three
+  ```
+
+* `for`문의 원소로 튜플을 사용하여 동시의 여러 변수를 받아들일 수 있습니다.
+
+  ```python
+  a = [(1,2), (3,4), (5,6)]
+  for (first, last) in a:
+      print first + last
+  
+  # 출력결과:
+  # 3
+  # 7
+  # 11
+  ```
+
+#### 4.5.2 `for` + `continue`
+* `for` 문을 수행하는 도중 `continue`를 만나면 이후를 실행하지 않고 `for`문의 처음으로 돌아갑니다.
+* 아래 예시에서는 60점 이상인 사람에게만 축하메시지를 보냅니다.
+  ```python
+  marks = [90, 25, 67, 45, 80]
+  
+  number = 0
+  for mark in marks:
+      number = number + 1
+      if mark < 60:
+          continue
+      print "Congratulations! passed with %d" % number
+  
+  # 출력결과:
+  # Congratulations! passed with 90
+  # Congratulations! passed with 67
+  # Congratulations! passed with 80
+  ```
+
+#### 4.5.3 `for` + `list` comprehension
+* 리스트 안에 `for`문을 포함하는 `list` comprehension을 사용하면 매우 효과적이 됩니다.
+  
+  형식은 `[표현식 for 항목 in 반복가능객체 if 조건문]`이며, `조건문을 만족하는 객체의 항목에 표현식을 적용하라`는 의미입니다.
+  
+  ```python
+  a = [1,2,3,4]
+  result = []
+  for num in a:
+      result.append(num * 3)
+  
+  print result
+
+  # 출력결과:
+  # [3, 6, 9, 12]
+  ```
+  
+  * 위 코드는 아래와 같이 표현할 수 있습니다.
+  
+    ```python
+    a = [1,2,3,4]
+    
+    result = [num* 3 for num in a]
+    print result
+  
+    # 출력결과:
+    # [3, 6, 9, 12]
+    ```
+
+* `for`문을 2개 이상 사용하는 것도 가능합니다.
+
+  ```python
+  [표현식 for 항목1 in 반복가능객체1 if 조건문1
+         for 항목2 in 반복가능객체2 if 조건문2
+         ...
+         for 항목n in 반복가능객체n if 조건문n]
+  ```
+
+  * 구구단의 모든 결과를 다음과 같이 표현할 수 있습니다.
+    ```python
+    result = [x*y for x in range(2, 10)
+                  for y in range(1, 10)]
+    
+    print result
+    
+    # 출력결과:
+    # [2, 4, 6, 8, 10, 12, 14, 16, 18, 3, 6, 9, 12, 15, 18, 21, 24, 27, 4, 8, 12, 16,
+    20, 24, 28, 32, 36, 5, 10, 15, 20, 25, 30, 35, 40, 45, 6, 12, 18, 24, 30, 36, 42
+    , 48, 54, 7, 14, 21, 28, 35, 42, 49, 56, 63, 8, 16, 24, 32, 40, 48, 56, 64, 72,
+    9, 18, 27, 36, 45, 54, 63, 72, 81]
+    ```
 
 
 
