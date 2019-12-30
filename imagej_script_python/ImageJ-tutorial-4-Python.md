@@ -20,7 +20,8 @@ date: 2019-12-19 11:59:13
 > [Jython Runner's Home](https://jython.tistory.com/)  
 > [Definite Guide to Jython](https://jython.readthedocs.io/en/latest/)  
 > [점프 투 파이썬](https://wikidocs.net/book/1)  
-> [A Fiji Scripting Tutorial #3. Inspecting properties and pixels of an image](https://www.ini.uzh.ch/~acardona/fiji-tutorial/#s3)  
+> [A Fiji Scripting Tutorial #3. Inspecting properties and pixels of an image](https://www.ini.uzh.ch/~acardona/fiji-tutorial/#s3) 
+> [SUNGJIN's BLOG](http://www.mukgee.com)
 
 ### 4.2. `import`: 모듈 불러오기
 
@@ -207,13 +208,13 @@ date: 2019-12-19 11:59:13
   
   <br>
   
-### 4.5. `for`, `while` : 조건문
+### 4.5. `for`, `while` : 반복문
 
 * `for`문은 이어지는 리스트의 원소들을 차례로 대입하며 아래 문장을 실행합니다..
 
 * 리스트 대신 튜플이나 문자열이 올 수 있습니다.
 
-#### 4.5.1. 기본 사용법
+#### 4.5.1. `for`문 기본 사용법
 
 * `for` 문 뒤의 리스트 원소를 하나씩 가져와 하단의 명령어를 실행합니다.
 
@@ -241,7 +242,7 @@ date: 2019-12-19 11:59:13
   # 11
   ```
 
-#### 4.5.2 `for` + `continue`
+##### 4.5.1.1. `for` + `continue`
 * `for` 문을 수행하는 도중 `continue`를 만나면 이후를 실행하지 않고 `for`문의 처음으로 돌아갑니다.
 * 아래 예시에서는 60점 이상인 사람에게만 축하메시지를 보냅니다.
   ```python
@@ -260,7 +261,7 @@ date: 2019-12-19 11:59:13
   # Congratulations! passed with 80
   ```
 
-#### 4.5.3 `for` + `list` comprehension
+##### 4.5.1.2. `for` + `list` comprehension
 * 리스트 안에 `for`문을 포함하는 `list` comprehension을 사용하면 매우 효과적이 됩니다.
   
   형식은 `[표현식 for 항목 in 반복가능객체 if 조건문]`이며, `조건문을 만족하는 객체의 항목에 표현식을 적용하라`는 의미입니다.
@@ -312,6 +313,54 @@ date: 2019-12-19 11:59:13
     9, 18, 27, 36, 45, 54, 63, 72, 81]
     ```
 
+##### 4.5.1.3. `for` + `break` 
+* `break`는 특정 조건을 만났을 때 `for` loop을 강제 종료시키는 명령어입니다.
+* 불필요한 작업을 반복하는 것을 방지합니다.
+  ```python
+  for a in range(0, 5):
+      print a
+      if a == 3:
+          break
+  else:
+      print "else statement is called."
+      
+  # 출력결과:
+  # 0
+  # 1
+  # 2
+  # 3
+  ```
+  
+  * `range()`함수에 의해 0부터 4까지 숫자들을 차례로 a에 대입하여 출력하다가 a가 3일 때 `break`를 만나 실행이 중단되고 `for` loop 밖으로 빠져나왔습니다.
+
+##### 4.5.1.4. `for` + `else`
+
+* 위 코드에서 맨 마지막에 `else` 명령이 있는데 실행되지 않았습니다. 
+
+* `for` 뒤에 붙은 `else`는 `for` 에서 `break`가 실행되지 않았을 때 실행됩니다.
+
+  ```python
+  for a in range(0, 5):
+      print a
+      if a == 6:
+          break
+          
+  else:
+      print "else statement is called."
+  
+  # 출력결과:
+  # 0
+  # 1
+  # 2
+  # 3
+  # 4
+  # else statement is called.
+  ```
+
+  * `range()`에 의해 a에 0부터 4까지 대입되고 출력되었으나 `break`의 조건이 a == 6 이기 때문에 `break`는 발동되지 않았습니다.
+  * `break`없이 `for` loop이 완료되었으므로 이후에 있는 `else`가 실행됩니다.
+
+* `for` loop에서 탐색하는 범위에서 조건을 만족시키지 않았을 경우 동작을 지정할 일이 있는데,  이럴 경우에 `else`명령을 사용하면 코드를 간결하게 작성할 수 있습니다.
 
 
 
