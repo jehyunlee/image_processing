@@ -14,10 +14,10 @@ date: 2019-12-16 10:59:49
 > [A Fiji Scripting Tutorial #2. Your first Fiji script](https://www.ini.uzh.ch/~acardona/fiji-tutorial/#s2)
 
 ### 3.1. Image 불러오기
-* [앞서 드린 설명](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#21-image-file-%EC%9D%BD%EA%B8%B0)에 따라 `Boat.gif` 이미지를 띄웁니다.  
+* [앞서 드린 설명](https://jehyunlee.github.io/2019/12/16/ImageJ-tutorial-2-ImageFileStructure/)에 따라 `Boat.gif` 이미지를 띄웁니다.  
 
 ### 3.2. ImageJ 개발창 띄우기
-* [앞서 드린 설명](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#222-imagej-python-script)을 따라 script 창을 띄웁니다.  
+* [앞서 드린 설명](https://jehyunlee.github.io/2019/12/16/ImageJ-tutorial-2-ImageFileStructure/)을 따라 script 창을 띄웁니다.  
 * `New_.py`라는 파일이 자동으로 생성되며, 저장되지 않았다는 뜻으로 `*`이 파일 이름 앞에 붙어있습니다.  
 * 본인이 작업할 위치에 가서 파일명을 `01_imgfile_01.py`라고 저장합시다.
 
@@ -37,31 +37,32 @@ date: 2019-12-16 10:59:49
 <br>
 
 #### 3.3.1.2. `Notepad++` 코딩 테스트  
-* [위에서](https://github.com/jehyunlee/image_processing/new/master/imagej_script_python#32-imagej-%EA%B0%9C%EB%B0%9C%EC%B0%BD-%EB%9D%84%EC%9A%B0%EA%B8%B0) 저장한 `01_imgfile_01.py`를 `Notepad++`에서 엽니다.  
+* 위에서 저장한 [`01_imgfile_01.py`](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/sample_code/02_imgfile_01getnsave.py)를 `Notepad++`에서 엽니다.  
 * 언어를 `Python`으로 설정해줍니다. `언어` > `P` > `Python`을 체크해주세요.   
 ![ ](3_dev_2.PNG)  
 <br>
 
 * i만 입력해도 pull-down 메뉴가 뜨면서 `python`에서 사용하는 i로 시작하는 명령어 등이 펼쳐집니다.  
 * 이들 중 하나를 골라서 입력하셔도 좋고, 이걸 보고 오타를 줄이셔도 좋습니다.  
-![](3_dev_3.PNG)  
+![ ](3_dev_3.PNG)  
 <br>
 
 * 간단하게 화면에 떠있는 이미지를 다른 이름으로 저장해보겠습니다.
-* [지난 시간에 배운 것](https://github.com/jehyunlee/image_processing/blob/master/imagej_script_python/2_image_file.md#223-imagej-python-script-%EC%84%A4%EB%AA%85)처럼 이미지를 메모리에 불러옵니다.
+* [지난 시간에 배운 것](https://jehyunlee.github.io/2019/12/16/ImageJ-tutorial-2-ImageFileStructure/)처럼 이미지를 메모리에 불러옵니다.
 * `ImageJ`에 `Boats.gif`와 script 입력창이 떠있을 겁니다.  
   `notepad++`에 다음과 같이 코드를 작성하고 script창에 붙여넣습니다.  
+  
     ```python
-    from ij import IJ
-
+  from ij import IJ
+  
     imp = IJ.getImage()
-    print imp
-
+  print imp
+  
     from ij.io import FileSaver
     fs = FileSaver(imp)
     fs.save()
-    ```
-
+  ```
+  
 * `[저장]`을 눌러서 저장합시다.  
 ![ ](3_dev_4.PNG)  
 <br>
