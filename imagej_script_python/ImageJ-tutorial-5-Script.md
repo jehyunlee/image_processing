@@ -7,7 +7,7 @@ comments: false
 thumbnail: /thumbnails/ImageJ-Tutorial/5_script_2.PNG
 date: 2019-12-19 12:00:00
 ---
-## 5.1. `ImageJ` Script 예시
+### 5.1. `ImageJ` Script 예시
 
 **Reference**
 > [A Fiji Scripting Tutorial #3. Inspecting properties and pixels of an image](https://www.ini.uzh.ch/~acardona/fiji-tutorial/#s3) 
@@ -15,7 +15,7 @@ date: 2019-12-19 12:00:00
 > 
 > Javadocs: [ImageJ1](https://javadoc.scijava.org/ImageJ1/), [ImageJ](https://javadoc.scijava.org/ImageJ/), [Fiji](https://javadoc.scijava.org/Fiji/)
 
-## 5.1.1. `ImageJ` 의 Image Processing 과정
+#### 5.1.1. `ImageJ` 의 Image Processing 과정
 
 * image processing은 
   (1) 이미지를 불러와서
@@ -40,7 +40,7 @@ date: 2019-12-19 12:00:00
   * 처리된 이미지를 저장할 수도 있고 (Save Image) 
   * 이미지에서 추출한 데이터를 `csv`파일로 저장할 수도 있습니다 (csv.writer())
 
-## 5.1.2. `ImageJ` 의 Image Processing 예시
+#### 5.1.2. `ImageJ` 의 Image Processing 예시
 * Image Processing 예시로 `median`을 적용하는 과정을 간단히 만들어 보았습니다.
 * 상세한 설명은 앞으로의 포스트에서 차차 하겠습니다. 
   부분별 기능을 코드에 주석으로 달았습니다.
@@ -85,7 +85,7 @@ date: 2019-12-19 12:00:00
   * 원본의 선명한 컬러 그림이 코드가 실행된 후 median처리되어 흑백의 뿌연 그림이 되고, 최종적으로 지정된 장소(`C:\Tmp`)에 `median.JPG`라고 저장되었습니다.
   ![ ](5_script_2.PNG)
 
-## 5.1.4. `ImageJ` Plugin 제작
+#### 5.1.3. `ImageJ` Plugin 제작
 * 제작한 script를 `ImageJ` Plugin으로 제작할 수 있습니다.
 * `ImageJ`가 설치된 폴더 (`C:\Users\[본인계정]\Fiji.app`) 하부에 `plugins`가 있습니다. 
 여기에 script를 저장하고 `ImageJ`를 재시작하면 됩니다.
@@ -95,14 +95,14 @@ date: 2019-12-19 12:00:00
 ![ ](5_script_3.PNG)
 <br>
 
-## 5.2. `ImageJ` script 작성
+### 5.2. `ImageJ` script 작성
 * `ImageJ`로 구현하고자 하는 최종 목적을 위해 순차적으로 실행할 기능을 설계합니다.
 1. 해당 기능이 있는지 찾고
 2. plugin이라면 파라미터의 종류를, `JAVA Class`라면 문법까지 확인한 후
 3. script 안에 구현합니다.
 4. 실행하여 결과를 확인하고 원하는 결과를 얻을 때까지 파라미터를 튜닝합니다.
 
-## 5.2.1. `ImageJ` 기능 탐색
+#### 5.2.1. `ImageJ` 기능 탐색
 * 내가 찾는 기능이 `ImageJ`에 있는지 찾아보려면 `Command Finder`를 사용합니다.
 * `Command Finder`는 `ImageJ` 하단의 검색창을 클릭해서 실행할 수도 있고,
   단축키 `l` (`L`)을 누르면 커서가 자동으로 이 곳으로 이동합니다.
@@ -114,7 +114,7 @@ date: 2019-12-19 12:00:00
   * `identifier`는 `FFT`가 포함된 모듈을 의미합니다.
     `legacy:ij.plugin.FFT`라고 되어 있으므로 `from ij.plugin import FFT`로 함수를 호출할 수 있습니다.
 
-## 5.2.2. `ImageJ` plugin 파라미터 종류 확인
+### 5.2.2. `ImageJ` plugin 파라미터 종류 확인
 * `plugin`에 포함된 기능은 'ij.run()'을 이용해 비교적 쉽게 실행할 수 있습니다.
 * 파라미터를 찾기 위해서는 `Macro Recorder`를 사용하는 것이 가장 간편합니다.
 * `FFT`는 별도의 파라미터가 없이 실행 가능하므로 `median`을 실행해 봅시다.
@@ -139,7 +139,7 @@ date: 2019-12-19 12:00:00
   ```
   ![ ](5_script_7.PNG)
 
-## 5.2.3. `ImageJ` `JAVA Class` 문법, 파라미터 확인
+#### 5.2.3. `ImageJ` `JAVA Class` 문법, 파라미터 확인
 * `python`에서 `JAVA`를 불러 사용하는 `jython`의 특징이 가장 크게 발휘되는 부분입니다.
   바꿔 말하면, **가장 험난한 곳**입니다.
   
