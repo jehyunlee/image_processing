@@ -41,25 +41,25 @@ date: 2020-01-18 18:30:00
 
 * [여기에서 이미지를 다운로드](2_cal_3.tif)받아 `ImageJ`에서 엽니다.
 
-  * **`Image > Lookup Tables`**에서 `Green Blue Fire`를 선택합니다.
+  * <b>`Image > Lookup Tables`</b>에서 `Green Blue Fire`를 선택합니다.
 
   * 흔히 `LUT`라고 말하는 Loopup Table은 Grayscale에 담긴 Scalar 값을 시각화할 colormap입니다.
 
   * 실제 값은 변경하지 않고 `ImageJ`에서 보여주는 시각적인 효과만 변경됩니다.
 
-  * **`Analyze > Surface Plot`**을 선택하고 옵션에서 `Draw Wireframe`, `Shade`, `Draw Axis`, `Smooth`를 선택합니다. 2차원 그림이 3차원으로 변환됩니다. **z 축** 숫자를 보면 167 ~ 2408로 표시되어 있습니다. `Calibration`이 적용된 것입니다.
+  * <b>`Analyze > Surface Plot`</b>을 선택하고 옵션에서 `Draw Wireframe`, `Shade`, `Draw Axis`, `Smooth`를 선택합니다. 2차원 그림이 3차원으로 변환됩니다. **z 축** 숫자를 보면 167 ~ 2408로 표시되어 있습니다. `Calibration`이 적용된 것입니다.
 
-  * **`Analyze > 3D Surface Plot`**을 선택해도 비슷한 그림을 얻을 수 있습니다. 3D 회전을 비롯해서 `Grid Size`, `Smoothing` 등을 실시간으로 조정할 수 있는 interactive plot입니다. 여기서는 **z 축**에 `Calibration`이 적용되지 않았습니다.
+  * <b>`Analyze > 3D Surface Plot`</b>을 선택해도 비슷한 그림을 얻을 수 있습니다. 3D 회전을 비롯해서 `Grid Size`, `Smoothing` 등을 실시간으로 조정할 수 있는 interactive plot입니다. 여기서는 **z 축**에 `Calibration`이 적용되지 않았습니다.
 
-    ![ ](2_cal_3.PNG)
+    ![ ](2_cal_3.png)
 
-### 2.3. Calibration (GUI)
+### 2.3. Spatial Calibration (GUI)
 
 * 이미지의 Scale Bar를 이용하여 Calibration을 설정해 보겠습니다.
 
   * 메인 창에서 **Line Selection Tool**을 선택하고 Scale Bar를 따라 선을 긋습니다. 첫 지점을 클릭하고 `shift`키를 누른 채 마우스를 이동하면 포인터를 수평으로만 움직일 수 있습니다.
 
-  * [Calibration을 적용할 이미지를 여기에서 다운로드](2_cal_2.tif)받아 `ImageJ`에서 열고, **`Analyze > Set Scale...`**을 선택하여 Scale 설정 창을 엽니다.
+  * [Calibration을 적용할 이미지를 여기에서 다운로드](2_cal_2.tif)받아 `ImageJ`에서 열고, <b>`Analyze > Set Scale...`</b>을 선택하여 Scale 설정 창을 엽니다.
 
   * 조금 전 손으로 그었던 선의 길이가 `Distance in pixels`로 483이 나옵니다.
 
@@ -67,21 +67,21 @@ date: 2020-01-18 18:30:00
 
   * 본 이미지에만 적용할 Calibration이므로 `Global`은 체크되지 않은 채로 놔둔 채 `OK`를 누르면 Calibration이 적용됩니다.
 
-    ![ ](2_cal_4.PNG)
+    ![ ](2_cal_4.png)
 
 * 방금 설정한 Calibration을 이용하여 Particle의 지름을 측정해 보겠습니다.
   
   * 지름을 잴 Particle을 정하고, **Line Selection Tool**을 이용해서 지름에 맞춰 선을 긋습니다.
   
-  * **`Analyze > Set Measurements`**에서 측정할 항목을 선택합니다. `Angle`과 `Length`는 기본으로 출력되니 추가로 얻을 값들을 선택하고, 필요 없는 값들을 선택 해제하면 됩니다.
+  * <b>`Analyze > Set Measurements`</b>에서 측정할 항목을 선택합니다. `Angle`과 `Length`는 기본으로 출력되니 추가로 얻을 값들을 선택하고, 필요 없는 값들을 선택 해제하면 됩니다.
 
-  * **`Analyze > Measure`**를 선택하면 Results 창이 뜨고 `Length = 896.401`이 출력됩니다. Results 창에서 **`File > Save as...`**를 선택하면 `.csv`파일로 저장할 수 있습니다.
+  * <b>`Analyze > Measure`</b>를 선택하면 Results 창이 뜨고 `Length = 896.401`이 출력됩니다. Results 창에서 <b>`File > Save as...`</b>를 선택하면 `.csv`파일로 저장할 수 있습니다.
   
-  * **`Analyze > Plot Profile`**을 선택하면 Particle의 지름을 가로지르는 선을 따라 Intensity Profile을 얻을 수 있습니다. 
+  * <b>`Analyze > Plot Profile`</b>을 선택하면 Particle의 지름을 가로지르는 선을 따라 Intensity Profile을 얻을 수 있습니다. 
   
-    ![ ](2_cal_5.PNG)
+    ![ ](2_cal_5.png)
 
-### 2.4. Calibration (python script)
+### 2.4. Spatial Calibration (python script)
 
 * `python` script를 이용해 현재의 `Calibration`값을 확인하고, 새로운 `Calibration`을 적용하겠습니다.
 
@@ -111,6 +111,7 @@ date: 2020-01-18 18:30:00
   scale = 4.13 # nm/px
   cal.pixelWidth = scale
   cal.pixelHeight = scale
+  cal.unit = 'nm'
   print 'after Calibration:', cal
   imp2.setCalibration(cal)
   
@@ -121,10 +122,10 @@ date: 2020-01-18 18:30:00
 
   * 실행 결과 
 
-  ![ ](2_cal_5.PNG)
+  ![ ](2_cal_6.png)
 
   * 새 창으로 뜨는  `Calibration`이 적용된 이미지는 처음 이미지와 동일해 보입니다.
-  * 그러나 Scale Bar를 따라 **Line Selection Tool**을 긋고 **`Analyze > Measure`**를 실행하면 `Length = 2007.180`이라는 값이 나옵니다.
+  * 그러나 Scale Bar를 따라 **Line Selection Tool**을 긋고 <b>`Analyze > Measure`</b>를 실행하면 `Length = 2007.180`이라는 값이 나옵니다.
   * `Calibration`을 적용하기 전 값은 `Length = 8.643`으로, 성공적으로 적용되었음을 알 수 있습니다.
   * 이상적으로는 `Length = 2000`이 나와야 하지만, Line Selection을 할 때 손끝에서 발생한 오차로 인해 다소 크게 측정된 것입니다.
 
