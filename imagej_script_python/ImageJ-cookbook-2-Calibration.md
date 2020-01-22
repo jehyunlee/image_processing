@@ -24,9 +24,9 @@ date: 2020-01-18 18:30:00
   * 그러나 어떤 이미지는 `ImageJ` 메인 창의 `x`, `y`좌표, `pixel`값에 괄호`()`가 붙어있습니다.
   * 아래 예제의 [원본은 여기에서 다운로드](2_cal_2.tif) 받을 수 있습니다.
     ![ ](2_cal_2.PNG)        
-  * 괄호 안 밖의 값은 `pixel`단위, 괄호 안의 값은 보정된(`calibrated`) 실제 길이입니다.
+  * 괄호 안의 값은 `pixel`단위, 괄호 밖의 값은 보정된(`calibrated`) 실제 길이입니다.
   * 이미지 우측 하단 $ 2\ \mu\text{m} $  scale bar의 길이는 484 px 입니다. 
-  * 메타데이터로부터 얻은 `scale`이 4.13 nm/px이므로, 확인을 위해 곱해보면 $ 484 \times 4.13 = 1998.92\ \text{nm} \approx 2 \mu\text{m} $ 입니다.
+  * 메타데이터로부터 얻은 `scale`이 4.13 nm/px이므로, 확인을 위해 곱해보면 $ 484 \times 4.13 = 1998.92\ \text{nm} $ 이므로 $ \approx 2 \mu\text{m} $ 입니다.
 <br>
 * `ImageJ` `Calibration`은 크게 두 가지로 나뉘어집니다.
   * **Spatial Calibration** : `x`, `y`등 길이 방향을 보정합니다.
@@ -53,9 +53,11 @@ date: 2020-01-18 18:30:00
 
     ![ ](2_cal_3.png)
 
-### 2.3. Spatial Calibration (GUI)
+### 2.3.Calibration (GUI)
 
-* 이미지의 Scale Bar를 이용하여 Calibration을 설정해 보겠습니다.
+#### 2.3.1. Spatial Calibration (GUI)
+
+* 이미지의 Scale Bar를 이용하여 Spatial Calibration을 설정해 보겠습니다.
 
   * 메인 창에서 **Line Selection Tool**을 선택하고 Scale Bar를 따라 선을 긋습니다. 첫 지점을 클릭하고 `shift`키를 누른 채 마우스를 이동하면 포인터를 수평으로만 움직일 수 있습니다.
 
@@ -80,6 +82,56 @@ date: 2020-01-18 18:30:00
   * <b>`Analyze > Plot Profile`</b>을 선택하면 Particle의 지름을 가로지르는 선을 따라 Intensity Profile을 얻을 수 있습니다. 
   
     ![ ](2_cal_5.png)
+
+* `ImageJ`에서 이미지에 Scale Bar를 삽입할 수 있습니다.
+
+  * <b>`Analyze > Tools > Scale Bar...`</b>를 선택합니다.
+
+  * `Scale Bar` 창에서 Calibration 단위(`nm`) 기준의 길이와 Scale Bar의 `Height`, `Font Size`, `Location` 등을 설정합니다. 설정값에 따라 이미지 위에 실시간으로 Scale Bar가 생성되니 보시면서 원하는 상태로 설정하면 됩니다.
+
+  * $2000\ \text{nm}$ 대신 $2\ \mu \text{m}$로 출력되기를 원하시면, calibration을 $\mu \text{m}$ 단위로 진행하시면 됩니다.
+
+    ![ ](2_cal_11.PNG)
+
+#### 2.3.2. Density Calibration (GUI)
+
+* Density Calibration을 위해선 다음 두 가지 사항이 필요합니다.
+  1. 두 지점 이상의 `pixel`과 데이터(`value`)  쌍
+  2. Density Calibration의 함수(`function`): Linear? Polynomial? Exponential?
+* Density Calibration을 위한 데이터가 주어지면 좋지만, 그렇지 않은 경우 이미지 한켠의 범례(`legend`)를 이용해서라도 입력해야 합니다.
+
+* `GeoTIFF` 이미지 데이터를 이용해서 Density Calibration을 해 보겠습니다.
+  ![ ](2_cal_7.png)
+  * `GeoTIFF` 형식은 지리정보(GIS)와 기상 분야에 주로 사용되며, 이미지 외에도 `map projection`, `coordinate systems`, `ellipsoids` 등의 데이터를 함께 담고 있습니다.
+  * [여기에서 예제파일을 다운](2_cal_7.tif)받습니다.
+  * `ImageJ`에서 파일을 열고, <b>`Analyze > Calibrate`</b>를 선택합니다.
+  * `Calibrate` 창에서, 왼쪽에 `pixel` 값을 넣고 오른쪽은 이에 해당하는 `value`를 넣어줍니다.
+    1. 왼쪽 공간에 0과 254를 넣습니다. 데이터 사이는 `Enter`키로 띄워줍니다.
+    2. 오른쪽 공간에 -2와 45를 넣습니다. 역시 `Enter`키로 분리해 줍니다.
+    3. 섭씨 온도 데이터입니다. `unit`에 해당하는 곳에 `Degrees Celsius`를 넣습니다.
+    4. 1차식 데이터이므로 <b>Function </b>메뉴에서 `Straight Line`을 선택합니다.
+    5. `OK`를 누르면 `Calibration Function`이 보일 것입니다.
+    6. `Calibration Function`을 닫고 이미지 위에 마우스를 가져가면, 메인 창에 포인터가 위치한 지점의 x, y 좌표와 함께 value가 보입니다.
+    7. 이미지를 <b>`File > Save As`</b>에서 `.tif`형식으로 저장하면 `Calibration`이 함께 저장됩니다.
+    ![ ](2_cal_8.PNG)
+
+* Density Calibration을 이용해 이미지 데이터 분석을 해 보겠습니다.
+  * <b>`Analysis > Set Measurements`</b>에서 `Area`, `Mean gray value`, `Standard deviation`, `Modal gray value`, `Min & Max gray value`를 선택하고 <b>`OK`</b>를 눌러 창을 닫습니다.
+  * <b>`Analysis > Measurement`</b>를 클릭하면 <b>Results</b>창이 뜹니다.
+  * <b>Set Measures</b>에서 지정한 분석 결과가 담겨 있습니다.
+  
+  ![ ](2_cal_9.PNG)
+
+* Scale Bar처럼 Density Calibration을 Legend로 삽입할 수 있습니다.
+
+  * <b>`Analyze > Tools > Calibration Bar...`</b>를 선택합니다.
+
+  * Scale Bar와 대체로 비슷하지만 `Number of Labels`, `Decimal Places`, `Zoom Factor`등 다른 인자들이 있습니다. 
+  * 직접 인자를 바꿔가면서 Legend가 실시간으로 어떻게 변하는지 살펴보시기 바랍니다.
+
+    ![ ](2_cal_10.PNG)
+
+<br>
 
 ### 2.4. Spatial Calibration (python script)
 
@@ -109,8 +161,8 @@ date: 2020-01-18 18:30:00
   
   # 4. Apply New Calibration
   scale = 4.13 # nm/px
-  cal.pixelWidth = scale
-  cal.pixelHeight = scale
+  cal.pixelWidth = scale # pixelWidth : Pixel width in 'unit's
+  cal.pixelHeight = scale # pixelHeight : Pixel height in 'unit's
   cal.unit = 'nm'
   print 'after Calibration:', cal
   imp2.setCalibration(cal)
