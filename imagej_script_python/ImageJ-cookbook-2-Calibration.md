@@ -133,7 +133,9 @@ date: 2020-01-18 18:30:00
 
 <br>
 
-### 2.4. Spatial Calibration (python script)
+### 2.4.Calibration (python script)
+
+#### 2.4.1. Spatial Calibration (python script)
 
 * `python` script를 이용해 현재의 `Calibration`값을 확인하고, 새로운 `Calibration`을 적용하겠습니다.
 
@@ -181,3 +183,8 @@ date: 2020-01-18 18:30:00
   * `Calibration`을 적용하기 전 값은 `Length = 8.643`으로, 성공적으로 적용되었음을 알 수 있습니다.
   * 이상적으로는 `Length = 2000`이 나와야 하지만, Line Selection을 할 때 손끝에서 발생한 오차로 인해 다소 크게 측정된 것입니다.
 
+#### 2.4.2. Density Calibration (python script)
+
+* Density Calibration 또한 `python` script를 이용해 진행할 수 있습니다.
+* 먼저, 위 `2.4.1` 코드와 실행 결과를 보면 현재의 `Calibration`을 읽어서 `cal`이라는 변수에 저장하고 출력한 결과가 `w`, `h`, `d`, `unit`, `f`, `nc`, `table`, `vunit`, `bd`로 출력됩니다. 각각의 의미는 다음과 같습니다.
+* 
