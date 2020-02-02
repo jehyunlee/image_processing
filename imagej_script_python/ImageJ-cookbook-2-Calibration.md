@@ -7,9 +7,13 @@ comments: false
 thumbnail: /thumbnails/ImageJ-Cookbook/2_cal_2.jpg
 date: 2020-01-18 18:30:00
 ---
-**Reference**
+<b>Reference</b>
 
 > [Earth Analysis Techniques: Introduction to Image Analysis](https://serc.carleton.edu/earth_analysis/image_analysis/introduction/index.html)
+
+<b>Contributor</b>
+
+> [BraINstinct0](https://github.com/BraINstinct0)
 
 ### 2.1. Calibration의 의미
 
@@ -186,5 +190,108 @@ date: 2020-01-18 18:30:00
 #### 2.4.2. Density Calibration (python script)
 
 * Density Calibration 또한 `python` script를 이용해 진행할 수 있습니다.
-* 먼저, 위 `2.4.1` 코드와 실행 결과를 보면 현재의 `Calibration`을 읽어서 `cal`이라는 변수에 저장하고 출력한 결과가 `w`, `h`, `d`, `unit`, `f`, `nc`, `table`, `vunit`, `bd`로 출력됩니다. 각각의 의미는 다음과 같습니다.
-* 
+
+* 먼저, 위 <b>2.4.1</b> 코드와 실행 결과를 보면 현재의 `Calibration`을 읽어서 `cal`이라는 변수에 저장하고 출력한 결과가 `w`, `h`, `d`, `unit`, `f`, `nc`, `table`, `vunit`, `bd`로 출력됩니다. 각각의 의미는 다음과 같습니다.
+
+  
+
+
+| <b>변수 이름<br>Variable Name</b> | <b>전체 이름<br>Full Name</b> |                       <b>의미<br>Meaning</b>                        | <b>기본값<br>Default Value</b> |
+| :------------------------: | :--------------------: | :----------------------------------------------------------: | :---------------------: |
+|           <b>w</b>            |       pixelWidth       |                 pixel width scale (unit/px)                  |           1.0           |
+|           <b>h</b>           |      pixelHeight       |                 pixel height scale (unit/px)                 |           1.0           |
+|           <b>d</b>           |       pixelDepth       |     pixel depth scale (unit/px)<br>"slice 한 장의 두께"      |           1.0           |
+|            <b>unit</b>            |          unit          |                  spatial unit of real world                  |         "inch"          |
+|             <b>f</b>              |        function        |             density calibration fitting function             |           20            |
+|             <b>nc</b>             |  coefficients.length   |    function의 coefficient 수<br>(ex. y = a + bx : nc = 2)    |          null           |
+|           <b>cTable</b>            |         cTable.length         | bitDepth에 대응되는 real value 수<br>(ex. bd = 8 : Table size = 256 by 2) |          null           |
+|           <b>vunit</b>            |       valueUnit        |                  density unit of real world                  |       Gray Value        |
+|             <b>bd</b>             |        bitDepth        |        data depth. 2^bd.<br>(ex. 256 = 2^8 : bd = 8)         |            8            |
+
+  * 공식문서에서 이 부분에 대한 설명이 매우 불친절합니다.
+
+  * 자세한 설명은 소스코드를 열어 이해할 수 밖에 없었습니다. 상세한 설명이 있다면 제보바랍니다.
+
+    <b>[ 관련 공식문서 링크 ]</b> [Calibration](https://imagej.nih.gov/ij/developer/source/ij/measure/Calibration.java.html), [CurveFitter](https://imagej.nih.gov/ij/developer/api/ij/measure/CurveFitter.html), [Constant Field Values](https://imagej.nih.gov/ij/developer/api/constant-values.html)
+    
+    <br>
+    
+  * 위에서 4개의 인자(`w`, `h`, `d`, `unit`)는 Spatial Calibration에 연관된 것이고,
+    아래 5개의 인자(`f`, `nc`, `cTable`, `vunit`, `bd`)는 Density Calibration에 연관된 것입니다.
+  
+* `bd`=8이라면 0~255까지 256개의 값에 대응되는 value를 cTable로 입력해야 하기 때문에 Density Calibration을 python script로 수행하기엔 좀 성가십니다.
+
+  <br>
+
+* 따라서, Density Calibration을 python script로 수행할 때는 [<b>ImageJ > Tutorial > 5. Python Script 작성</b>](https://jehyunlee.github.io/2019/12/19/ImageJ-tutorial-5-Script/)에 있는 `IJ.run()`을 사용하시는 것을 추천합니다.
+
+  * <b>2.3.2</b>의 Density Calibration 과정을 `IJ.run()`으로 옮기면 다음과 같이 한 줄로 표현됩니다.
+
+  ```python
+  IJ.run(imp, "Calibrate...", "function=[Straight Line] unit=[Degrees Celsius] text1=[0 254] text2=[-2 45] show")
+  ```
+
+  * 메뉴의 <b>Analyze > Calibrate...</b>를 실행하되, `function`, `unit`, pixel value(`text1`), real value(`text2`)를 넣고 calibration 결과를 보이라(`show`)는 의미입니다.
+  * 아래 코드를 실행하면 Density Calibration 전후의 parameter를 비교해서 보여줍니다.
+
+  ```python
+  from ij import IJ, ImagePlus
+  from ij.plugin import Duplicator
+  
+  # 1. Get Open Image
+  imp = IJ.getImage()
+  
+  # 2. Get Initial Calibration
+  cal = imp.getCalibration()
+  f = cal.getFunction()
+  coef = cal.getCoefficients()
+  cTable = cal.getCTable()
+  vunit = cal.getValueUnit()
+  bd = imp.getBitDepth()
+  print 'before Calibration:', cal
+  print 'f:', f
+  print 'coef:', coef
+  print 'cTable:', cTable
+  print 'vunit:', vunit
+  print 'bd:', bd
+  
+  # 3. Duplicate Image
+  imp2 = Duplicator().run(imp)
+  
+  # 4. Apply New Calibration
+  IJ.run(imp, "Calibrate...", "function=[Straight Line] unit=[Degrees Celsius] text1=[0 254] text2=[-2 45] show")
+  imp2.setCalibration(cal)
+  
+  # 5. Get Final Calibration
+  cal2 = imp2.getCalibration()
+  f = cal2.getFunction()
+  coef = cal2.getCoefficients()
+  cTable = cal2.getCTable()
+  vunit = cal2.getValueUnit()
+  bd = imp2.getBitDepth()
+  print 'after Calibration:', cal2
+  print 'f:', f
+  print 'coef:', coef
+  print 'cTable:', cTable
+  print 'vunit:', vunit
+  print 'bd:', bd
+  
+  # 5. Show New Image
+  imp2.title = 'Calibrated'
+  imp2.show()
+  ```
+
+  ![ ](2_cal_12.PNG)
+
+  * Density Calibration `function` 값이 20에서 0으로 변했습니다.
+    [관련 공식 문서](https://imagej.nih.gov/ij/developer/api/constant-values.html)를 보시면 <b>NONE</b>에서 <b>STRAIGHT_LINE</b>으로 변경되었다는 의미라는 것을 알 수 있습니다.
+
+    ![ ](2_cal_13.PNG)
+
+  * `function`의 coefficient를 의미하는 `coef`는 None에서 array('d', [-2.0, 0.18504...])가 되었습니다.
+    <b>2.3.2</b>의 y = a + bx 그래프에 도시된 계수가 바로 a = -2.0, b = 0.18504 입니다.
+
+  * `cTable`은 None에서 어마무시한 숫자의 나열이 되었습니다.
+    위에서 말씀드린 ' 0~255까지 256개의 값에 대응되는 value' 입니다.
+
+    
